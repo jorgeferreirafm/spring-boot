@@ -1,4 +1,4 @@
-package io.github.jffm.springboot.samples.utils;
+package io.github.jffm.springboot.samples.lombok;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

@@ -1,4 +1,4 @@
-package io.github.jffm.springboot.samples.utils;
+package io.github.jffm.springboot.samples.lombok;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -8,11 +8,11 @@ import org.springframework.web.bind.annotation.RestController;
 
 @SpringBootApplication
 @RestController
-public class UtilsApplication {
+public class LombokApplication {
 
 	public static void main(String[] args) {
-		SpringApplication springApplication = new SpringApplication(UtilsApplication.class);
-		springApplication.addListeners(new ApplicationPidFileWriter("spring-boot-samples-helloworld.pid"));
+		SpringApplication springApplication = new SpringApplication(LombokApplication.class);
+		springApplication.addListeners(new ApplicationPidFileWriter("spring-boot-samples-lombok.pid"));
 		springApplication.run(args);
 	}
 	
