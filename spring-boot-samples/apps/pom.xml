@@ -28,6 +28,11 @@
 		<springboot.version>1.5.2.RELEASE</springboot.version>
 		<springcloud.version>Camden.SR5</springcloud.version>
 		<spring.retry>1.2.0.RELEASE</spring.retry>
+
+		<!-- others -->
+		<lombok.version>1.16.16.0</lombok.version>
+
+
 	</properties>
 
 	<repositories>
@@ -65,7 +70,6 @@
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
-
 		</dependencies>
 	</dependencyManagement>
 
@@ -79,10 +83,11 @@
 			</plugin>
 		</plugins>
 	</build>
-	
-	
+
+
 	<modules>
 		<module>spring-boot-sample-helloworld</module>
+		<module>spring-boot-sample-lombok</module>
 	</modules>
-	
+
 </project>
