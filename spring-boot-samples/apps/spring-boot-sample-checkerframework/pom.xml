@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+
+	<parent>
+		<groupId>io.github.jffm</groupId>
+		<artifactId>spring-boot-samples</artifactId>
+		<version>1.0-SNAPSHOT</version>
+	</parent>
+
+	<groupId>io.github.jffm.spring-boot-samples</groupId>
+	<artifactId>spring-boot-sample-spring-boot-sample-checkerframework</artifactId>
+
+	<packaging>war</packaging>
+
+	<name>Spring Boot :: Samples :: Checker Framework</name>
+	<description>Spring Boot Samples Checker Framework</description>
+
+
+	<properties>
+		<annotatedJdk>${org.checkerframework:jdk8:jar}</annotatedJdk>
+	</properties>
+
+	<dependencies>
+		<!-- Spring Boot Starter -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter</artifactId>
+		</dependency>
+		<!-- Spring Boot Web Starter -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+		<!-- lombok Maven plugin -->
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+		</dependency>
+
+		<!-- annotations from the Checker Framework: nullness, interning, locking, 
+			... -->
+		<dependency>
+			<groupId>org.checkerframework</groupId>
+			<artifactId>checker-qual</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.checkerframework</groupId>
+			<artifactId>checker</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.checkerframework</groupId>
+			<artifactId>jdk8</artifactId>
+		</dependency>
+
+	</dependencies>
+
+	<build>
+		<plugins>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.1</version>
+				<configuration>
+					<source>1.8</source>
+					<target>1.8</target>
+					<fork>true</fork>
+					<annotationProcessors>
+						<annotationProcessor>org.checkerframework.common.aliasing.AliasingChecker</annotationProcessor>
+						<annotationProcessor>org.checkerframework.common.reflection.ClassValChecker</annotationProcessor>
+						<annotationProcessor>org.checkerframework.checker.fenum.FenumChecker</annotationProcessor>
+						<annotationProcessor>org.checkerframework.checker.formatter.FormatterChecker</annotationProcessor>
+						<annotationProcessor>org.checkerframework.checker.guieffect.GuiEffectChecker</annotationProcessor>
+						<annotationProcessor>org.checkerframework.checker.i18nformatter.I18nFormatterChecker</annotationProcessor>
+						<!-- <annotationProcessor>org.checkerframework.checker.i18n.I18nSubchecker</annotationProcessor> -->
+						<annotationProcessor>org.checkerframework.checker.nullness.NullnessChecker</annotationProcessor>
+						<annotationProcessor>org.checkerframework.checker.nullness.NullnessRawnessChecker</annotationProcessor>
+						<annotationProcessor>org.checkerframework.checker.interning.InterningChecker</annotationProcessor>
+						<annotationProcessor>org.checkerframework.checker.nullness.KeyForSubchecker</annotationProcessor>
+						<annotationProcessor>org.checkerframework.checker.linear.LinearChecker</annotationProcessor>
+						<annotationProcessor>org.checkerframework.checker.lock.LockChecker</annotationProcessor>
+						<annotationProcessor>org.checkerframework.checker.index.lowerbound.LowerBoundChecker</annotationProcessor>
+						<annotationProcessor>org.checkerframework.common.reflection.MethodValChecker</annotationProcessor>
+						<annotationProcessor>org.checkerframework.checker.compilermsgs.CompilerMessagesChecker</annotationProcessor>
+						<annotationProcessor>org.checkerframework.checker.i18n.LocalizableKeyChecker</annotationProcessor>
+						<annotationProcessor>org.checkerframework.framework.util.PurityChecker</annotationProcessor>
+						<annotationProcessor>org.checkerframework.checker.regex.RegexChecker</annotationProcessor>
+						<annotationProcessor>org.checkerframework.common.util.report.ReportChecker</annotationProcessor>
+						<annotationProcessor>org.checkerframework.checker.index.samelen.SameLenChecker</annotationProcessor>
+						<annotationProcessor>org.checkerframework.checker.index.searchindex.SearchIndexChecker</annotationProcessor>
+						<annotationProcessor>org.checkerframework.checker.signature.SignatureChecker</annotationProcessor>
+						<annotationProcessor>org.checkerframework.checker.signedness.SignednessChecker</annotationProcessor>
+						<!-- <annotationProcessor>org.checkerframework.common.subtyping.SubtypingChecker</annotationProcessor> -->
+						<annotationProcessor>org.checkerframework.checker.tainting.TaintingChecker</annotationProcessor>
+						<!-- <annotationProcessor>org.checkerframework.common.util.debug.TypeOutputtingChecker</annotationProcessor> -->
+						<annotationProcessor>org.checkerframework.checker.units.UnitsChecker</annotationProcessor>
+						<annotationProcessor>org.checkerframework.checker.index.IndexChecker</annotationProcessor>
+						<annotationProcessor>org.checkerframework.common.value.ValueChecker</annotationProcessor>
+					</annotationProcessors>
+					<compilerArgs>
+						<!-- location of the annotated JDK, which comes from a Maven dependency -->
+						<arg>-Xbootclasspath/p:${annotatedJdk}</arg>
+						<!-- Uncomment the following line if using Java 7. -->
+						<arg>-AprintAllQualifiers</arg>
+						<arg>-Adetailedmsgtext</arg>
+						<arg>-AprintErrorStack</arg>
+						<arg>-Anocheckjdk</arg>
+						<!-- <arg>-Afilenames</arg> -->
+					</compilerArgs>
+				</configuration>
+			</plugin>
+			<!-- <plugin> This plugin will set the properties values using dependency 
+				information <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-dependency-plugin</artifactId> 
+				<executions> <execution> <goals> <goal>properties</goal> </goals> </execution> 
+				</executions> </plugin> -->
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+				<executions>
+					<execution>
+						<goals>
+							<goal>repackage</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+</project>
