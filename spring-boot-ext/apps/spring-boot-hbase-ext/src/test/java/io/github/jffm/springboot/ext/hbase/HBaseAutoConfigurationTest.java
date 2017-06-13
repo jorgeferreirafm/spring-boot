@@ -39,7 +39,7 @@ public class HBaseAutoConfigurationTest {
 		
 		HBaseProperties baseProperties =  this.context.getBean(HBaseProperties.class);
 				
-		assertEquals("127.0.0.1", baseProperties.getZookeeper().getQuorum());
+		assertEquals("127.0.0.1", baseProperties.getHbase().getZookeeper().getQuorum());
 	}
 
 }
