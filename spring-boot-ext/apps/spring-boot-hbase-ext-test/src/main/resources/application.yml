@@ -1,0 +1,12 @@
+server:
+  port: 8888
+
+
+    
+extension:  
+  datasources:
+    hbase:
+      zookeeper:
+        quorum: 127.0.0.1
+        property:
+          client-port: 2181
