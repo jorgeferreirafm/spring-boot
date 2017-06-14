@@ -105,6 +105,7 @@
 		<module>spring-boot-sample-helloworld</module>
 		<module>spring-boot-sample-lombok</module>
 		<module>spring-boot-sample-checkerframework</module>
+		<module>spring-boot-hbase-ext-test</module>
 	</modules>
 
 </project>
