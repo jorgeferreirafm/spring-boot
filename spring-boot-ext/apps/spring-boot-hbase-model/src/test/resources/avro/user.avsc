@@ -1,0 +1,9 @@
+{"namespace": "io.github.jffm.springboot.ext.hbase.model.repository.avro",
+  "type": "record",
+  "name": "User",
+  "fields": [
+    {"name": "name", "type": "string"},
+    {"name": "email",  "type": ["string", "null"]},
+    {"name": "password", "type": ["string", "null"]}
+  ]
+}
